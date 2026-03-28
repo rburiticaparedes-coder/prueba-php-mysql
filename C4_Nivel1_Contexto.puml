@@ -1,0 +1,18 @@
+@startuml C4_Nivel1_Contexto
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Diagrama de Contexto (Nivel 1) — Sistema de Nómina PHP
+
+Person(trabajador_admin, "Administrador / RRHH", "Usuario que ingresa datos de trabajadores, consulta liquidaciones y aplica correcciones de nómina.")
+
+System(sistema_nomina, "Sistema de Gestión de Nómina", "Aplicación web PHP que permite registrar trabajadores, calcular liquidaciones salariales, listar pagos y corregir registros existentes.")
+
+System_Ext(bd_mysql, "Base de Datos MySQL", "Almacena de forma persistente los registros de liquidaciones: cédula, nombre, horas, descuentos y total a pagar.")
+
+Rel(trabajador_admin, sistema_nomina, "Registra trabajadores, consulta historial y corrige liquidaciones", "HTTP / Navegador Web")
+Rel(sistema_nomina, bd_mysql, "Lee y escribe registros de liquidaciones", "MySQLi / SQL")
+
+@enduml
+
