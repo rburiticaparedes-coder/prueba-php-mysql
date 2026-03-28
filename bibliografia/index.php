@@ -6,3 +6,4 @@ require_once 'controllers/Controller.php';
 $controller = new SistemaController($pdo);
 $controller->ejecutar();
 ?>
+//prueba de colaboracion Laura
